@@ -111,10 +111,8 @@ document.getElementById("paidBtn").addEventListener("click", () => {
     amountInput.focus();
     return;
   }
-  statusBox.classList.add("show");
-  statusBox.textContent = "Payment reported for ₹" + amount.toFixed(2) +
-    (orderInput.value.trim() ? " • Reference: " + orderInput.value.trim() : "") +
-    ". This website cannot verify the payment automatically. Please contact the shop and wait for the owner to confirm after checking the bank/UPI account.";
+    statusBox.classList.add("show");
+  statusBox.textContent = "Dear Client, please go back to WhatsApp and send your payment screenshot and Transaction ID to the same WhatsApp number from which you received this website link. Thank you!";
 });
 </script>
 </body>
