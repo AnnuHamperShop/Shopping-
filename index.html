@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0b">
+<title>PREMIUM GIFTS HAMPER | UPI Payment</title>
+<style>
+:root{--bg:#090909;--panel:#151515;--gold:#d8b56d;--gold2:#f5dfa5;--text:#f7f2e8;--muted:#bdb6a8;--line:#3a3325}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#292114 0,#090909 42%);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+.wrap{max-width:980px;margin:auto;padding:22px 16px 48px}.top{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:12px 0 22px}
+.logo{width:48px;height:48px;border:1px solid var(--gold);border-radius:14px;display:grid;place-items:center;color:var(--gold);font-size:27px}
+.brand{font-family:Georgia,serif;font-size:clamp(18px,3vw,26px);font-weight:bold;letter-spacing:1.4px;color:var(--gold2)}.tag{color:var(--muted);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.hero{text-align:center;padding:34px 0 24px}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:12px}.hero h1{font-family:Georgia,serif;font-size:clamp(29px,6vw,48px);line-height:1.12;margin:10px 0}.hero p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:linear-gradient(145deg,#191919,#101010);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 16px 44px #0008}.card h2{font-family:Georgia,serif;margin:0 0 6px;font-size:23px}.sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+.qrbox{background:#fff;border-radius:14px;padding:12px;max-width:340px;margin:0 auto 14px}.qrbox img{display:block;width:100%;height:auto}.caption{text-align:center;color:#cfc8ba;font-size:13px}
+.fieldlabel{display:block;color:var(--muted);font-size:13px;margin:14px 0 7px}.inputrow{display:flex;gap:8px}.input{width:100%;min-width:0;background:#090909;border:1px solid #51452f;color:white;border-radius:10px;padding:13px;font-size:16px}.btn{border:0;border-radius:11px;padding:13px 16px;font-weight:bold;cursor:pointer;font-size:14px;transition:.15s}.btn:active{transform:scale(.98)}.gold{background:linear-gradient(135deg,#f2d99a,#c49b4e);color:#17120a}.darkbtn{background:#242424;border:1px solid #55472f;color:var(--gold2)}.full{width:100%;margin-top:12px}.upi{font-size:14px;overflow-wrap:anywhere}.notice{border:1px solid #5c4b2c;background:#211b10;border-radius:12px;padding:13px;color:#e6d5ad;font-size:13px;margin-top:16px}.steps{list-style:none;padding:0;margin:14px 0 0}.steps li{display:flex;gap:10px;margin:13px 0;color:#d9d2c5;font-size:14px}.num{flex:0 0 26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#342a17;color:var(--gold2);font-weight:bold}
+.status{display:none;margin-top:14px;padding:14px;border:1px solid #6e592f;border-radius:12px;background:#1c180f;color:#f1dfb6}.status.show{display:block}.footer{text-align:center;color:#8e8779;font-size:12px;margin-top:24px}.tiny{font-size:12px;color:#a9a193}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.card{padding:18px}.top{align-items:flex-start}.logo{width:42px;height:42px}.hero{padding-top:26px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo" aria-hidden="true">✦</div>
+    <div><div class="brand">PREMIUM GIFTS HAMPER</div><div class="tag">Thoughtful gifts • Special moments</div></div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">Simple • Convenient • UPI</div>
+    <h1>Complete Your Payment</h1>
+    <p>Scan the QR code or pay using the UPI ID below.</p>
+  </section>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Scan &amp; Pay</h2>
+      <p class="sub">Open your preferred UPI app and scan the QR.</p>
+      <div class="qrbox"><img src="payment-qr.jpg" alt="UPI payment QR code provided by the shop"></div>
+      <div class="caption">Scan with a UPI app such as Google Pay, PhonePe, Paytm or BHIM.</div>
+      <div class="notice">Before paying, check the payee name and amount shown in your UPI app. If the details do not match, cancel the payment.</div>
+    </section>
+
+    <section class="card">
+      <h2>Pay using UPI ID</h2>
+      <p class="sub">Copy the UPI ID or open a UPI app with the details pre-filled.</p>
+      <label class="fieldlabel" for="upiId">Shop UPI ID</label>
+      <div class="inputrow"><input id="upiId" class="input upi" value="Dhawansahab00761198@ybl" readonly><button class="btn darkbtn" id="copyBtn" type="button">Copy</button></div>
+
+      <label class="fieldlabel" for="amount">Payment amount (₹)</label>
+      <input id="amount" class="input" type="number" inputmode="decimal" min="1" max="1000000" step="0.01" placeholder="Enter order amount">
+      <label class="fieldlabel" for="orderRef">Order/reference (optional)</label>
+      <input id="orderRef" class="input" maxlength="40" placeholder="e.g. PGH-1001">
+
+      <button class="btn gold full" id="payBtn" type="button">Open UPI App to Pay ↗</button>
+      <button class="btn darkbtn full" id="paidBtn" type="button">I Have Paid</button>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+      <p class="tiny">“I Have Paid” only sends a notice on this page; it does not verify the transaction or confirm an order.</p>
+    </section>
+  </main>
+
+  <section class="card" style="margin-top:18px">
+    <h2>How to pay</h2>
+    <ol class="steps">
+      <li><span class="num">1</span><span>Scan the QR code or tap “Open UPI App to Pay”.</span></li>
+      <li><span class="num">2</span><span>Check the recipient and enter/confirm the exact amount in your UPI app.</span></li>
+      <li><span class="num">3</span><span>Complete the payment in the UPI app and save the transaction reference.</span></li>
+      <li><span class="num">4</span><span>The shop owner must verify the credit in their bank/UPI app before confirming the order.</span></li>
+    </ol>
+  </section>
+  <div class="footer">© <span id="year"></span> PREMIUM GIFTS HAMPER • UPI payments are handled by your UPI app.</div>
+</div>
+<script>
+const upiId = "Dhawansahab00761198@ybl";
+const amountInput = document.getElementById("amount");
+const orderInput = document.getElementById("orderRef");
+const statusBox = document.getElementById("status");
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("copyBtn").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(upiId);
+    document.getElementById("copyBtn").textContent = "Copied!";
+  } catch (e) {
+    document.getElementById("upiId").select();
+    document.execCommand("copy");
+    document.getElementById("copyBtn").textContent = "Copied!";
+  }
+});
+
+document.getElementById("payBtn").addEventListener("click", () => {
+  const amount = Number(amountInput.value);
+  if (!Number.isFinite(amount) || amount <= 0) {
+    alert("Please enter a valid payment amount.");
+    amountInput.focus();
+    return;
+  }
+  const params = new URLSearchParams({
+    pa: upiId,
+    pn: "PREMIUM GIFTS HAMPER",
+    am: amount.toFixed(2),
+    cu: "INR",
+    tn: (orderInput.value.trim() ? "Order " + orderInput.value.trim() : "Gift hamper payment").slice(0, 80)
+  });
+  window.location.href = "upi://pay?" + params.toString();
+});
+
+document.getElementById("paidBtn").addEventListener("click", () => {
+  const amount = Number(amountInput.value);
+  if (!Number.isFinite(amount) || amount <= 0) {
+    alert("Please enter the amount you paid.");
+    amountInput.focus();
+    return;
+  }
+  statusBox.classList.add("show");
+  statusBox.textContent = "Payment reported for ₹" + amount.toFixed(2) +
+    (orderInput.value.trim() ? " • Reference: " + orderInput.value.trim() : "") +
+    ". This website cannot verify the payment automatically. Please contact the shop and wait for the owner to confirm after checking the bank/UPI account.";
+});
+</script>
+</body>
+</html>
