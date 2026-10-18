@@ -4,367 +4,364 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PREMIUM GIFTS HAMPER | UPI Payment</title>
+<meta name="theme-color" content="#080807">
+<title>Premium Gifts Hamper | Payment</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+  --gold: #f3cf70;
+  --gold-dark: #b98120;
+  --bg: #080807;
+  --panel: #11110f;
 }
-
+* { box-sizing: border-box; }
 body {
-    font-family: Arial, sans-serif;
-    background: #080808;
-    color: #fff;
-    min-height: 100vh;
-    padding: 20px 14px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: radial-gradient(ellipse at top, #302211, #0b0a08 48%, #050505);
+  min-height: 100vh;
 }
-
-.container {
-    max-width: 440px;
-    margin: 0 auto;
-    text-align: center;
-    border: 1px solid #c9a227;
-    border-radius: 18px;
-    padding: 24px 18px;
-    background: #111;
-    box-shadow: 0 0 24px rgba(201,162,39,.13);
+.wrap { width: min(1120px, calc(100% - 28px)); margin: auto; }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 22px 4px;
+  border-bottom: 1px solid #8c6b2b;
 }
-
-.logo {
-    color: #d8b54a;
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: 1px;
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-icon {
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+  color: var(--gold); font-size: 27px;
 }
-
-.subtitle {
-    color: #c8c8c8;
-    font-size: 13px;
-    margin-top: 8px;
+.brand-name {
+  font-family: Georgia, serif;
+  color: var(--gold);
+  font-size: clamp(16px, 3vw, 25px);
+  font-weight: bold; letter-spacing: 1.5px;
 }
-
-.divider {
-    height: 1px;
-    background: #9f7b19;
-    margin: 20px 0;
+.brand-sub {
+  font-size: 10px; letter-spacing: 2px;
+  color: #d8c9a4; margin-top: 5px;
 }
-
-h2 {
-    color: #e0bc50;
-    font-size: 20px;
-    margin-bottom: 12px;
+.nav { color: #d8c9a4; font-size: 12px; }
+.hero { text-align: center; padding: 38px 10px 20px; }
+.eyebrow {
+  display: inline-block; padding: 9px 18px;
+  border: 1px solid var(--gold-dark);
+  border-radius: 30px; color: var(--gold);
+  font-size: 11px; letter-spacing: 2px;
 }
-
-.description {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #ddd;
+h1 {
+  color: #f6d984; font: bold clamp(34px, 5vw, 55px) Georgia, serif;
+  margin: 18px 0 12px;
 }
-
-.timer-box {
-    margin: 20px 0;
-    border: 1px solid #80671d;
-    border-radius: 12px;
-    padding: 14px;
-    background: #19170f;
+.hero p {
+  max-width: 660px; margin: auto;
+  color: #d0cbc0; line-height: 1.7; font-size: 14px;
 }
-
-.timer-label {
-    color: #d9d9d9;
-    font-size: 13px;
-    margin-bottom: 8px;
+.timer {
+  max-width: 420px; margin: 22px auto 0;
+  padding: 16px; display: flex; align-items: center;
+  justify-content: center; gap: 16px;
+  border: 1px solid var(--gold-dark); border-radius: 17px;
+  background: linear-gradient(135deg, #1d180f, #090908);
 }
-
-#timer {
-    font-size: 30px;
-    font-weight: bold;
-    color: #e5c052;
-    font-variant-numeric: tabular-nums;
+.clock { font-size: 29px; color: var(--gold); }
+.timer small {
+  display: block; color: #c9c2af;
+  font-size: 10px; letter-spacing: 1.5px; margin-bottom: 4px;
 }
-
-.qr-section {
-    display: none;
-    margin-top: 20px;
+.time {
+  color: #ffdf88; font-size: 31px; font-weight: bold;
+  font-variant-numeric: tabular-nums;
 }
-
-.qr-section.active {
-    display: block;
+.cards {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px; margin-top: 20px;
 }
-
-.qr-title {
-    color: #e4c35d;
-    font-size: 17px;
-    font-weight: bold;
-    margin-bottom: 12px;
+.card {
+  background: linear-gradient(145deg, #171611, #080808 75%);
+  border: 1px solid #665022; border-radius: 20px;
+  padding: 22px; box-shadow: 0 15px 40px #0008;
 }
-
-.qr-image {
-    width: 250px;
-    max-width: 100%;
-    height: auto;
-    background: #fff;
-    padding: 10px;
-    border-radius: 12px;
-    display: block;
-    margin: 0 auto;
+.card.active {
+  border-color: #f4ca61;
+  box-shadow: 0 0 24px #c78b2528;
 }
-
-.upi-label {
-    color: #c7c7c7;
-    font-size: 13px;
-    margin-top: 15px;
-    margin-bottom: 6px;
+.card-head {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 18px;
 }
-
-.upi-id {
-    color: #f0d16a;
-    border: 1px solid #a98a2b;
-    border-radius: 8px;
-    background: #191919;
-    padding: 12px 8px;
-    font-size: 14px;
-    font-weight: bold;
-    overflow-wrap: anywhere;
-    user-select: text;
+.pill {
+  border: 1px solid var(--gold-dark); border-radius: 30px;
+  padding: 7px 13px; color: var(--gold);
+  font-size: 12px; font-weight: bold;
 }
-
-button {
-    width: 100%;
-    border: none;
-    border-radius: 9px;
-    padding: 13px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 14px;
+.status { color: #aaa; font-size: 12px; }
+.card.active .status { color: #62e88b; }
+.qr-frame {
+  width: min(245px, 100%); margin: 0 auto 15px;
+  padding: 8px; background: #fff;
+  border: 3px solid #e9c46b; border-radius: 13px;
 }
-
-.primary-btn {
-    background: linear-gradient(135deg, #f0d16a, #a77c17);
-    color: #111;
+.qr-frame img {
+  width: 100%; aspect-ratio: 1;
+  display: block; object-fit: contain; background: #fff;
 }
-
-.secondary-btn {
-    background: #222;
-    color: #e5c052;
-    border: 1px solid #a98a2b;
+.upi-label { text-align: center; color: #c8c1b2; font-size: 12px; }
+.upi {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; padding: 12px; border: 1px solid #715728;
+  border-radius: 9px; background: #080807;
+  color: #f8df9b; font-size: 13px; font-weight: bold;
+  overflow-wrap: anywhere;
 }
-
-#processing {
-    display: none;
-    color: #f0d16a;
-    font-size: 16px;
-    line-height: 1.6;
-    padding: 28px 8px;
+.copy-icon {
+  flex-shrink: 0; background: none; border: 0;
+  color: var(--gold); font-size: 19px; cursor: pointer;
 }
-
-#processing.show {
-    display: block;
+button { cursor: pointer; font-family: inherit; }
+.btn {
+  border-radius: 30px; padding: 13px 18px;
+  font-weight: bold; font-size: 14px;
 }
-
-.spinner {
-    width: 32px;
-    height: 32px;
-    border: 3px solid #51451e;
-    border-top-color: #f0d16a;
-    border-radius: 50%;
-    margin: 0 auto 14px;
-    animation: spin .8s linear infinite;
+.gold-btn {
+  color: #171107; border: 0;
+  background: linear-gradient(110deg, #fff0ad, #e8b84c, #b87b20);
 }
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
+.outline-btn {
+  color: #f3d37b; border: 1px solid #a47b2e;
+  background: #12100b;
 }
-
+.copy-main { width: 100%; margin-top: 12px; }
+.app-note { text-align: center; color: #aaa28e; font-size: 11px; margin-top: 12px; }
+.switch-row { text-align: center; margin: 24px 0; }
+.switch-row button { min-width: min(330px, 100%); }
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; padding: 18px;
+  border: 1px solid #5d4822; border-radius: 16px;
+  background: #0b0b09;
+}
+.step { text-align: center; padding: 8px; }
+.step-icon { font-size: 25px; color: var(--gold); margin-bottom: 8px; }
+.step strong { display: block; color: #f3d37b; font-size: 13px; margin-bottom: 6px; }
+.step p { color: #c2beb4; font-size: 12px; line-height: 1.5; margin: 0; }
 .notice {
-    color: #aaa;
-    font-size: 11px;
-    line-height: 1.6;
-    margin-top: 20px;
+  max-width: 720px; margin: 18px auto 0;
+  border: 1px solid #4d3d20; border-radius: 12px;
+  padding: 14px; background: #100e09;
+  color: #c8c1b1; font-size: 12px; line-height: 1.7;
+}
+.notice b { color: #f2d27a; }
+footer {
+  text-align: center; color: #a89a7b;
+  font-size: 11px; margin: 25px 0; letter-spacing: 1px;
+}
+#processing {
+  display: none; position: fixed; inset: 0; z-index: 10;
+  background: #050505ed; align-items: center;
+  justify-content: center; padding: 20px;
+}
+#processing.show { display: flex; }
+.process-card {
+  width: min(420px, 100%); text-align: center;
+  background: #11100c; border: 1px solid var(--gold);
+  border-radius: 20px; padding: 32px 24px;
+}
+.spinner {
+  width: 42px; height: 42px; margin: auto;
+  border: 3px solid #4c3b1b; border-top-color: var(--gold);
+  border-radius: 50%; animation: spin .8s linear infinite;
+}
+.process-card h2 { color: var(--gold); font-family: Georgia, serif; }
+.process-card p { color: #c9c3b4; font-size: 13px; line-height: 1.6; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media(max-width:700px) {
+  .wrap { width: calc(100% - 20px); }
+  .nav { display: none; }
+  .hero { padding-top: 28px; }
+  .cards { grid-template-columns: 1fr; }
+  .card { padding: 18px; }
+  .qr-frame { width: 220px; }
+  .steps { grid-template-columns: 1fr; padding: 10px; }
+  .step { display: grid; grid-template-columns: 40px 1fr; text-align: left; align-items: center; }
+  .step-icon { grid-row: span 2; margin: 0; }
+  .step strong { margin: 0; }
+  .brand-sub { letter-spacing: 1px; }
 }
 </style>
 </head>
 
 <body>
-<div class="container">
-
-    <div class="logo">PREMIUM GIFTS HAMPER</div>
-    <div class="subtitle">UPI PAYMENT PAGE</div>
-
-    <div class="divider"></div>
-
-    <h2>Scan & Pay</h2>
-    <p class="description">
-        नीचे दिए गए QR Code को स्कैन करें।<br>
-        भुगतान करने से पहले UPI ID की जाँच करें।
-    </p>
-
-    <div class="timer-box">
-        <div class="timer-label">QR Code Timer</div>
-        <div id="timer">05:00</div>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="brand-icon">♔</div>
+    <div>
+      <div class="brand-name">PREMIUM GIFTS HAMPER</div>
+      <div class="brand-sub">SPECIAL GIFTS · HAPPY MOMENTS</div>
     </div>
+  </div>
+  <div class="nav">HOME &nbsp; · &nbsp; PAYMENT &nbsp; · &nbsp; CONTACT</div>
+</header>
 
-    <div id="processing">
-        <div class="spinner"></div>
-        <div>Processing...</div>
-        <div style="font-size:12px;margin-top:6px;">
-            कृपया 3 सेकंड प्रतीक्षा करें
-        </div>
+<section class="hero">
+  <div class="eyebrow">✦ PREMIUM PAYMENT EXPERIENCE ✦</div>
+  <h1>Scan &amp; Pay</h1>
+  <p>Choose a QR code and scan it using your preferred UPI app. Verify the recipient name and UPI ID in your payment app before confirming.</p>
+  <div class="timer">
+    <div class="clock">◷</div>
+    <div><small>NEXT QR CHANGE IN</small><div class="time" id="timer">05:00</div></div>
+  </div>
+</section>
+
+<main class="cards">
+  <section class="card active" id="card1">
+    <div class="card-head">
+      <span class="pill">QR CODE 01</span>
+      <span class="status" id="status1">● Active</span>
     </div>
-
-    <div class="qr-section" id="qr1">
-        <div class="qr-title">QR CODE 1</div>
-        <img src="qr1.jpg" alt="QR Code 1" class="qr-image">
-
-        <div class="upi-label">UPI ID</div>
-        <div class="upi-id">reena-953@ptyes</div>
-
-        <button class="primary-btn" onclick="copyUpi('reena-953@ptyes')">
-            Copy UPI ID
-        </button>
+    <div class="qr-frame">
+      <img src="qr1.jpg" alt="First UPI QR Code">
     </div>
-
-    <div class="qr-section" id="qr2">
-        <div class="qr-title">QR CODE 2</div>
-        <img src="qr2.jpg" alt="QR Code 2" class="qr-image">
-
-        <div class="upi-label">UPI ID</div>
-        <div class="upi-id">bableshmeena636-3@oksbi</div>
-
-        <button class="primary-btn"
-            onclick="copyUpi('bableshmeena636-3@oksbi')">
-            Copy UPI ID
-        </button>
+    <p class="upi-label">UPI ID</p>
+    <div class="upi">
+      <span>reena-953@ptyes</span>
+      <button class="copy-icon" aria-label="Copy first UPI ID" onclick="copyUPI('reena-953@ptyes')">▢</button>
     </div>
+    <button class="btn gold-btn copy-main" onclick="copyUPI('reena-953@ptyes')">▢ &nbsp; Copy UPI ID</button>
+    <div class="app-note">Scan &amp; pay using your UPI app</div>
+  </section>
 
-    <button class="secondary-btn" onclick="showNextQR()">
-        Show Next QR Code
-    </button>
-
-    <div class="notice">
-        कृपया भुगतान करने से पहले QR Code और UPI ID सत्यापित करें।
-        यह पेज स्वयं भुगतान की पुष्टि नहीं करता।
+  <section class="card" id="card2">
+    <div class="card-head">
+      <span class="pill">QR CODE 02</span>
+      <span class="status" id="status2">◷ Next</span>
     </div>
+    <div class="qr-frame">
+      <img src="qr2.jpg" alt="Second UPI QR Code">
+    </div>
+    <p class="upi-label">UPI ID</p>
+    <div class="upi">
+      <span>bableshmeena636-3@oksbi</span>
+      <button class="copy-icon" aria-label="Copy second UPI ID" onclick="copyUPI('bableshmeena636-3@oksbi')">▢</button>
+    </div>
+    <button class="btn gold-btn copy-main" onclick="copyUPI('bableshmeena636-3@oksbi')">▢ &nbsp; Copy UPI ID</button>
+    <div class="app-note">Scan &amp; pay using your UPI app</div>
+  </section>
+</main>
 
+<div class="switch-row">
+  <button class="btn outline-btn" onclick="manualSwitch()">⟳ &nbsp; Switch to Next QR</button>
+</div>
+
+<section class="steps">
+  <div class="step"><div class="step-icon">▣</div><strong>1. Scan &amp; Pay</strong><p>Scan the selected QR using your UPI app.</p></div>
+  <div class="step"><div class="step-icon">▧</div><strong>2. Save Screenshot</strong><p>Keep your payment confirmation screenshot.</p></div>
+  <div class="step"><div class="step-icon">▤</div><strong>3. Share Details</strong><p>Share your transaction ID / UTR with the seller.</p></div>
+</section>
+
+<div class="notice">
+  <b>ⓘ Payment reminder</b><br>
+  Verify the payee name and UPI ID in your UPI app before authorizing payment. This website does not automatically verify or confirm payments.
+</div>
+<footer>PREMIUM GIFTS HAMPER &nbsp; · &nbsp; THANK YOU FOR YOUR SUPPORT ♡</footer>
+</div>
+
+<div id="processing" role="status" aria-live="polite">
+  <div class="process-card">
+    <div class="spinner"></div>
+    <h2>Processing</h2>
+    <p>Switching to the next QR code…</p>
+    <p id="processCount">Please wait 3 seconds.</p>
+  </div>
 </div>
 
 <script>
-const DURATION = 5 * 60;
-const STORAGE_KEY = "premium_hamper_qr_state";
-
-let currentQR = 1;
-let endTime = Date.now() + DURATION * 1000;
-let interval = null;
-let processingTimeout = null;
-let isProcessing = false;
+const DURATION = 5 * 60 * 1000;
+const KEY = "pgh_payment_qr_state_v1";
+let activeQR = 1;
+let endAt = Date.now() + DURATION;
+let processing = false;
+let timerInterval;
+let processingInterval;
 
 function saveState() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        currentQR,
-        endTime
-    }));
+  try { localStorage.setItem(KEY, JSON.stringify({activeQR, endAt})); } catch (e) {}
 }
-
 function loadState() {
-    try {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-        if (saved && (saved.currentQR === 1 || saved.currentQR === 2)
-            && Number.isFinite(saved.endTime)) {
-            currentQR = saved.currentQR;
-            endTime = saved.endTime;
-        }
-    } catch (e) {
-        // Start a fresh timer if saved data is unavailable.
+  try {
+    const state = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (state && [1, 2].includes(state.activeQR) && Number.isFinite(state.endAt)) {
+      activeQR = state.activeQR;
+      endAt = state.endAt;
     }
-
-    if (endTime <= Date.now()) {
-        currentQR = currentQR === 1 ? 2 : 1;
-        endTime = Date.now() + DURATION * 1000;
-        saveState();
-    }
-}
-
-function displayQR() {
-    document.getElementById("qr1").classList.toggle(
-        "active", currentQR === 1
-    );
-    document.getElementById("qr2").classList.toggle(
-        "active", currentQR === 2
-    );
-}
-
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return String(minutes).padStart(2, "0") + ":" +
-           String(secs).padStart(2, "0");
-}
-
-function tick() {
-    if (isProcessing) return;
-
-    const remaining = Math.max(
-        0, Math.ceil((endTime - Date.now()) / 1000)
-    );
-
-    document.getElementById("timer").textContent =
-        formatTime(remaining);
-
-    if (remaining <= 0) {
-        switchAutomatically();
-    }
-}
-
-function switchAutomatically() {
-    if (isProcessing) return;
-
-    isProcessing = true;
-    clearInterval(interval);
-
-    document.getElementById("qr1").classList.remove("active");
-    document.getElementById("qr2").classList.remove("active");
-    document.getElementById("processing").classList.add("show");
-    document.getElementById("timer").textContent = "00:00";
-
-    processingTimeout = setTimeout(function() {
-        currentQR = currentQR === 1 ? 2 : 1;
-        endTime = Date.now() + DURATION * 1000;
-        saveState();
-
-        document.getElementById("processing").classList.remove("show");
-        displayQR();
-
-        isProcessing = false;
-        interval = setInterval(tick, 250);
-        tick();
-    }, 3000);
-}
-
-function showNextQR() {
-    if (isProcessing) return;
-
-    currentQR = currentQR === 1 ? 2 : 1;
-    endTime = Date.now() + DURATION * 1000;
+  } catch (e) {}
+  if (endAt <= Date.now()) {
+    activeQR = activeQR === 1 ? 2 : 1;
+    endAt = Date.now() + DURATION;
     saveState();
-    displayQR();
-    tick();
+  }
 }
-
-async function copyUpi(upi) {
-    try {
-        await navigator.clipboard.writeText(upi);
-        alert("UPI ID copied: " + upi);
-    } catch (e) {
-        prompt("Copy this UPI ID:", upi);
+function renderQR() {
+  [1, 2].forEach(n => {
+    const selected = n === activeQR;
+    document.getElementById("card" + n).classList.toggle("active", selected);
+    document.getElementById("status" + n).textContent = selected ? "● Active" : "◷ Next";
+  });
+}
+function updateTimer() {
+  if (processing) return;
+  const left = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
+  document.getElementById("timer").textContent =
+    String(Math.floor(left / 60)).padStart(2, "0") + ":" +
+    String(left % 60).padStart(2, "0");
+  if (left === 0) switchQR(true);
+}
+function switchQR(automatic) {
+  if (processing) return;
+  processing = true;
+  clearInterval(timerInterval);
+  document.getElementById("processing").classList.add("show");
+  let left = 3;
+  document.getElementById("processCount").textContent = "Please wait " + left + " seconds.";
+  processingInterval = setInterval(() => {
+    left--;
+    if (left > 0) {
+      document.getElementById("processCount").textContent = "Please wait " + left + " seconds.";
+      return;
     }
+    clearInterval(processingInterval);
+    activeQR = activeQR === 1 ? 2 : 1;
+    endAt = Date.now() + DURATION;
+    saveState();
+    renderQR();
+    document.getElementById("processing").classList.remove("show");
+    processing = false;
+    timerInterval = setInterval(updateTimer, 250);
+    updateTimer();
+  }, 1000);
 }
-
+function manualSwitch() { switchQR(false); }
+async function copyUPI(value) {
+  try {
+    await navigator.clipboard.writeText(value);
+    alert("UPI ID copied: " + value);
+  } catch (e) {
+    window.prompt("Copy this UPI ID:", value);
+  }
+}
 loadState();
-displayQR();
-tick();
-interval = setInterval(tick, 250);
+renderQR();
+updateTimer();
+timerInterval = setInterval(updateTimer, 250);
 </script>
 </body>
 </html>
