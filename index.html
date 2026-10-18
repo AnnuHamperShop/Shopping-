@@ -1,6 +1,370 @@
+
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#090909"><title>PREMIUM GIFTS HAMPER | Payment</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PREMIUM GIFTS HAMPER | UPI Payment</title>
+
 <style>
-:root{--gold:#d9b56d;--gold2:#f4dfaa;--bg:#090909;--muted:#b9b4a9}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#282116 0,#090909 45%);color:#f8f5ee;font-family:Arial,Helvetica,sans-serif;min-height:100vh;display:flex;justify-content:center;padding:22px 14px}.wrap{width:100%;max-width:480px}.brand{text-align:center;margin:12px 0 20px}.brand-mark{width:58px;height:58px;border:1px solid var(--gold);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--gold2);font-size:25px;margin-bottom:10px}h1{font-size:22px;letter-spacing:2px;margin:0;color:var(--gold2)}.subtitle{font-size:12px;letter-spacing:2px;color:var(--muted);margin-top:8px}.card{background:linear-gradient(145deg,#1a1a1a,#101010);border:1px solid #5b4828;border-radius:20px;padding:22px;box-shadow:0 18px 50px #0008}.tag{display:inline-block;border:1px solid #6c572e;border-radius:30px;padding:7px 12px;color:var(--gold2);font-size:11px;letter-spacing:1px}h2{font-size:20px;text-align:center;margin:16px 0 8px}.desc{text-align:center;color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 18px}.qr-frame{background:#fff;border-radius:14px;padding:10px;width:min(100%,330px);margin:0 auto 16px}.qr-frame img{display:block;width:100%;height:auto;border-radius:5px}.qr-label{text-align:center;color:var(--gold2);font-size:12px;letter-spacing:1px;margin:8px 0 14px}.upi{background:#0a0a0a;border:1px solid #443720;border-radius:12px;padding:13px;text-align:center;margin:12px 0 16px}.upi small{display:block;color:var(--muted);font-size:11px;margin-bottom:6px}.upi strong{font-size:16px;word-break:break-all;color:var(--gold2)}button,.button{width:100%;border:0;border-radius:12px;padding:14px 12px;font-size:14px;font-weight:bold;cursor:pointer;text-decoration:none;display:block;text-align:center}.primary{background:linear-gradient(100deg,#b78a3c,#f2d99a);color:#17120a;margin-bottom:10px}.secondary{background:#222;color:#f8f5ee;border:1px solid #4d4d4d}.note{font-size:12px;line-height:1.7;color:#c7c1b6;text-align:center;margin:16px 0 0}.status{min-height:20px;text-align:center;color:var(--gold2);font-size:13px;margin:12px 0}.hidden{display:none!important}.footer{text-align:center;color:#777;font-size:11px;margin:18px 0}.steps{margin:18px 0 0;padding:14px;border-top:1px solid #332a1b;color:#c9c2b5;font-size:12px;line-height:1.8}@media(max-width:360px){h1{font-size:19px}.card{padding:16px}}
-</style></head><body><main class="wrap"><header class="brand"><div class="brand-mark">✦</div><h1>PREMIUM GIFTS HAMPER</h1><div class="subtitle">SECURE PAYMENT DETAILS</div></header><section class="card"><div style="text-align:center"><span class="tag">UPI PAYMENT</span></div><h2 id="heading">Scan &amp; Pay</h2><p class="desc" id="description">Scan the QR code using a supported UPI app. Verify recipient details in your payment app before paying.</p><div id="qrPanel"><div class="qr-frame"><img id="qrImage" src="qr1.jpg" alt="UPI payment QR code"></div><div class="qr-label" id="qrLabel">PAYMENT QR 1</div><div class="upi hidden" id="upiBox"><small>UPI ID</small><strong id="upiId">reena-953@ptyes</strong></div><a class="button primary" id="openUpi" href="#">Open UPI App to Pay</a><button class="secondary" id="paidBtn" type="button">I Have Paid</button></div><div id="processing" class="hidden" style="text-align:center;padding:28px 8px"><div style="font-size:32px;color:var(--gold2);margin-bottom:12px">⟳</div><h2 style="margin:0 0 10px">Wait for New QR Generation</h2><p class="desc" style="margin:0">Processing… <strong id="countdown">3</strong> seconds</p></div><div id="status" class="status" role="status" aria-live="polite"></div><div class="steps"><strong style="color:var(--gold2)">After payment</strong><br>1. Save your payment screenshot.<br>2. Copy your UPI transaction ID / UTR from your payment app.<br>3. Return to the WhatsApp chat where you received this link and send both details there.</div><p class="note">Check the payee name and amount in your UPI app before confirming. This page does not automatically verify payments.</p></section><div class="footer">PREMIUM GIFTS HAMPER · PAYMENT SUPPORT</div></main>
-<script>(()=>{const UPI_ID='reena-953@ptyes',KEY='pgh_qr_cycle_started_v1',FIVE_MINUTES=300000;const qrPanel=document.getElementById('qrPanel'),processing=document.getElementById('processing'),qrImage=document.getElementById('qrImage'),qrLabel=document.getElementById('qrLabel'),upiBox=document.getElementById('upiBox'),openUpi=document.getElementById('openUpi'),heading=document.getElementById('heading'),description=document.getElementById('description'),status=document.getElementById('status'),countdown=document.getElementById('countdown');function showQr2(){qrImage.src='qr2.jpg';qrImage.alt='Second UPI payment QR code';qrLabel.textContent='PAYMENT QR 2';upiBox.classList.remove('hidden');document.getElementById('upiId').textContent=UPI_ID;openUpi.href='upi://pay?pa='+encodeURIComponent(UPI_ID)+'&pn='+encodeURIComponent('PREMIUM GIFTS HAMPER');openUpi.onclick=null;heading.textContent='New Payment QR';description.textContent='Scan this QR using a supported UPI app. Verify recipient details before paying.';qrPanel.classList.remove('hidden');processing.classList.add('hidden');status.textContent='New QR is ready.'}function showQr1(){qrImage.src='qr1.jpg';qrImage.alt='First UPI payment QR code';qrLabel.textContent='PAYMENT QR 1';upiBox.classList.add('hidden');openUpi.href='#';openUpi.onclick=e=>{e.preventDefault();status.textContent='Scan QR 1 with your UPI app and verify the payee details before paying.'};heading.textContent='Scan & Pay';description.textContent='Scan the QR code using a supported UPI app. Verify recipient details in your payment app before paying.'}function startProcessing(){qrPanel.classList.add('hidden');processing.classList.remove('hidden');heading.textContent='Please Wait';description.textContent='';let n=3;countdown.textContent=n;status.textContent='';const c=setInterval(()=>{n--;countdown.textContent=Math.max(n,0);},1000);setTimeout(()=>{clearInterval(c);showQr2()},3000)}let started=Number(localStorage.getItem(KEY)),now=Date.now();if(!started||!Number.isFinite(started)||started>now){started=now;localStorage.setItem(KEY,String(started))}const elapsed=now-started;if(elapsed>=FIVE_MINUTES)startProcessing();else{showQr1();const remaining=FIVE_MINUTES-elapsed;status.textContent='QR 2 becomes available in about '+Math.ceil(remaining/60000)+' minute(s).';setTimeout(startProcessing,remaining)}document.getElementById('paidBtn').addEventListener('click',()=>{status.textContent='Return to the WhatsApp chat where you received this link and send your payment screenshot plus Transaction ID / UTR.'})})();</script></body></html>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px 14px;
+}
+
+.container {
+    max-width: 440px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #c9a227;
+    border-radius: 18px;
+    padding: 24px 18px;
+    background: #111;
+    box-shadow: 0 0 24px rgba(201,162,39,.13);
+}
+
+.logo {
+    color: #d8b54a;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #c8c8c8;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.divider {
+    height: 1px;
+    background: #9f7b19;
+    margin: 20px 0;
+}
+
+h2 {
+    color: #e0bc50;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.timer-box {
+    margin: 20px 0;
+    border: 1px solid #80671d;
+    border-radius: 12px;
+    padding: 14px;
+    background: #19170f;
+}
+
+.timer-label {
+    color: #d9d9d9;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+#timer {
+    font-size: 30px;
+    font-weight: bold;
+    color: #e5c052;
+    font-variant-numeric: tabular-nums;
+}
+
+.qr-section {
+    display: none;
+    margin-top: 20px;
+}
+
+.qr-section.active {
+    display: block;
+}
+
+.qr-title {
+    color: #e4c35d;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.qr-image {
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+}
+
+.upi-label {
+    color: #c7c7c7;
+    font-size: 13px;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+.upi-id {
+    color: #f0d16a;
+    border: 1px solid #a98a2b;
+    border-radius: 8px;
+    background: #191919;
+    padding: 12px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+    user-select: text;
+}
+
+button {
+    width: 100%;
+    border: none;
+    border-radius: 9px;
+    padding: 13px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 14px;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #f0d16a, #a77c17);
+    color: #111;
+}
+
+.secondary-btn {
+    background: #222;
+    color: #e5c052;
+    border: 1px solid #a98a2b;
+}
+
+#processing {
+    display: none;
+    color: #f0d16a;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 28px 8px;
+}
+
+#processing.show {
+    display: block;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #51451e;
+    border-top-color: #f0d16a;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.notice {
+    color: #aaa;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="logo">PREMIUM GIFTS HAMPER</div>
+    <div class="subtitle">UPI PAYMENT PAGE</div>
+
+    <div class="divider"></div>
+
+    <h2>Scan & Pay</h2>
+    <p class="description">
+        नीचे दिए गए QR Code को स्कैन करें।<br>
+        भुगतान करने से पहले UPI ID की जाँच करें।
+    </p>
+
+    <div class="timer-box">
+        <div class="timer-label">QR Code Timer</div>
+        <div id="timer">05:00</div>
+    </div>
+
+    <div id="processing">
+        <div class="spinner"></div>
+        <div>Processing...</div>
+        <div style="font-size:12px;margin-top:6px;">
+            कृपया 3 सेकंड प्रतीक्षा करें
+        </div>
+    </div>
+
+    <div class="qr-section" id="qr1">
+        <div class="qr-title">QR CODE 1</div>
+        <img src="qr1.jpg" alt="QR Code 1" class="qr-image">
+
+        <div class="upi-label">UPI ID</div>
+        <div class="upi-id">reena-953@ptyes</div>
+
+        <button class="primary-btn" onclick="copyUpi('reena-953@ptyes')">
+            Copy UPI ID
+        </button>
+    </div>
+
+    <div class="qr-section" id="qr2">
+        <div class="qr-title">QR CODE 2</div>
+        <img src="qr2.jpg" alt="QR Code 2" class="qr-image">
+
+        <div class="upi-label">UPI ID</div>
+        <div class="upi-id">bableshmeena636-3@oksbi</div>
+
+        <button class="primary-btn"
+            onclick="copyUpi('bableshmeena636-3@oksbi')">
+            Copy UPI ID
+        </button>
+    </div>
+
+    <button class="secondary-btn" onclick="showNextQR()">
+        Show Next QR Code
+    </button>
+
+    <div class="notice">
+        कृपया भुगतान करने से पहले QR Code और UPI ID सत्यापित करें।
+        यह पेज स्वयं भुगतान की पुष्टि नहीं करता।
+    </div>
+
+</div>
+
+<script>
+const DURATION = 5 * 60;
+const STORAGE_KEY = "premium_hamper_qr_state";
+
+let currentQR = 1;
+let endTime = Date.now() + DURATION * 1000;
+let interval = null;
+let processingTimeout = null;
+let isProcessing = false;
+
+function saveState() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        currentQR,
+        endTime
+    }));
+}
+
+function loadState() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (saved && (saved.currentQR === 1 || saved.currentQR === 2)
+            && Number.isFinite(saved.endTime)) {
+            currentQR = saved.currentQR;
+            endTime = saved.endTime;
+        }
+    } catch (e) {
+        // Start a fresh timer if saved data is unavailable.
+    }
+
+    if (endTime <= Date.now()) {
+        currentQR = currentQR === 1 ? 2 : 1;
+        endTime = Date.now() + DURATION * 1000;
+        saveState();
+    }
+}
+
+function displayQR() {
+    document.getElementById("qr1").classList.toggle(
+        "active", currentQR === 1
+    );
+    document.getElementById("qr2").classList.toggle(
+        "active", currentQR === 2
+    );
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return String(minutes).padStart(2, "0") + ":" +
+           String(secs).padStart(2, "0");
+}
+
+function tick() {
+    if (isProcessing) return;
+
+    const remaining = Math.max(
+        0, Math.ceil((endTime - Date.now()) / 1000)
+    );
+
+    document.getElementById("timer").textContent =
+        formatTime(remaining);
+
+    if (remaining <= 0) {
+        switchAutomatically();
+    }
+}
+
+function switchAutomatically() {
+    if (isProcessing) return;
+
+    isProcessing = true;
+    clearInterval(interval);
+
+    document.getElementById("qr1").classList.remove("active");
+    document.getElementById("qr2").classList.remove("active");
+    document.getElementById("processing").classList.add("show");
+    document.getElementById("timer").textContent = "00:00";
+
+    processingTimeout = setTimeout(function() {
+        currentQR = currentQR === 1 ? 2 : 1;
+        endTime = Date.now() + DURATION * 1000;
+        saveState();
+
+        document.getElementById("processing").classList.remove("show");
+        displayQR();
+
+        isProcessing = false;
+        interval = setInterval(tick, 250);
+        tick();
+    }, 3000);
+}
+
+function showNextQR() {
+    if (isProcessing) return;
+
+    currentQR = currentQR === 1 ? 2 : 1;
+    endTime = Date.now() + DURATION * 1000;
+    saveState();
+    displayQR();
+    tick();
+}
+
+async function copyUpi(upi) {
+    try {
+        await navigator.clipboard.writeText(upi);
+        alert("UPI ID copied: " + upi);
+    } catch (e) {
+        prompt("Copy this UPI ID:", upi);
+    }
+}
+
+loadState();
+displayQR();
+tick();
+interval = setInterval(tick, 250);
+</script>
+</body>
+</html>
